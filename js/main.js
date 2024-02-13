@@ -1,4 +1,7 @@
 'use strict'
+var myTimeout
+var intervalID 
+var secCounter = 1
 
 function onBallClick(ballEl,maxDiameter){
     var size = ballEl.offsetWidth
@@ -20,11 +23,9 @@ function onBallClick(ballEl,maxDiameter){
 function onThirdBallClick(){
     const ballEl1 = document.querySelector('.ball')
     const ballEl2 = document.querySelector('.ball2')
-    const ballComputedStyle1 = window.getComputedStyle(ballEl1)
-    const ballComputedStyle2 = window.getComputedStyle(ballEl2)
-    const ballColor1 = ballComputedStyle1.backgroundColor
-    const ballColor2 = ballComputedStyle2.backgroundColor
-    ballEl1.style.backgroundColor = ballColor2
+    const ballColor1 = window.getComputedStyle(ballEl1).backgroundColor
+    const ballColor2 = window.getComputedStyle(ballEl2).backgroundColor
+    ballEl1.style.backgroundColor = ballColor2 
     ballEl2.style.backgroundColor = ballColor1
     const ballSize1 = ballEl1.offsetWidth
     const ballSize2 = ballEl2.offsetWidth
@@ -43,7 +44,7 @@ function onFourthdBallClick(){
     const ballEl2 = document.querySelector('.ball2')
     const sizeBall1 = ballEl1.offsetWidth - rdmnewSize1
     const sizeBall2 = ballEl2.offsetWidth - rdmnewSize2
-    console.log(sizeBall1,sizeBall2);
+    // console.log(sizeBall1,sizeBall2);
     if (sizeBall1 > 100){
         ballEl1.style.width = sizeBall1 + 'px'
         ballEl1.style.height = sizeBall1 + 'px'
@@ -74,3 +75,29 @@ function onSixthBallClick(){
     ballEl2.innerText = '100'
 }
 
+function onMouseHover(){
+    myTimeout = setTimeout(autoClickStart,2000)
+}
+
+function onMouseHoverOut(){
+    if (myTimeout) clearTimeout(myTimeout)
+    if (intervalID) clearInterval(intervalID)
+}
+
+function autoClickStart(){
+    intervalID = setInterval(autoClick,2000)
+}
+
+function autoClick(){
+    secCounter++
+    // console.log(`secCounter ${secCounter}`);
+    const ballEl1 = document.querySelector('.ball')
+    const ballEl2 = document.querySelector('.ball2')
+    onBallClick(ballEl1,400)
+    onBallClick(ballEl2,500)
+    onThirdBallClick()
+    onFourthdBallClick()
+    if(secCounter === 10){
+        clearInterval(intervalID)
+    }
+}
