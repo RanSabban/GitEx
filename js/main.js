@@ -61,3 +61,16 @@ function onFifthBallClick(){
     bodyEl.style.backgroundColor = getRandomColor()
 }
 
+function onSixthBallClick(){
+    const ballEl1 = document.querySelector('.ball')
+    const ballEl2 = document.querySelector('.ball2')
+    ballEl1.style.backgroundColor = 'greenyellow'
+    ballEl1.style.width = '100px'
+    ballEl1.style.height = '100px'
+    ballEl1.innerText = '100'
+    ballEl2.style.backgroundColor = 'blue'
+    ballEl2.style.width = '100px'
+    ballEl2.style.height = '100px'
+    ballEl2.innerText = '100'
+}
+
