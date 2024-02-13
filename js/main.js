@@ -56,3 +56,8 @@ function onFourthdBallClick(){
     }
 }
 
+function onFifthBallClick(){
+    const bodyEl = document.querySelector('body')
+    bodyEl.style.backgroundColor = getRandomColor()
+}
+

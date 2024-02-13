@@ -70,3 +70,20 @@ h1{
     margin-inline-end: auto;
 
 }
+
+.ball5{
+    display: flex;
+    margin-block-start: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0);
+    font-size: 22px;
+    font-weight: bold;
+    transition: 1s;
+    justify-content: center;
+    align-items: center;  
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+
+}
