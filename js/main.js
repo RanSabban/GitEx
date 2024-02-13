@@ -6,11 +6,13 @@ function onBallClick(ballEl){
         size = 100
         ballEl.style.width = size + 'px'
         ballEl.style.height = size + 'px'
-        ballEl.innerText = size   
+        ballEl.innerText = size  
+        ballEl.style.backgroundColor = getRandomColor() 
         return 
     }
     size += getRandomIntInclusive(20,60)
     ballEl.style.width = size + 'px'
     ballEl.style.height = size + 'px'
     ballEl.innerText = size
+    ballEl.style.backgroundColor = getRandomColor() 
 }
