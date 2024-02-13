@@ -1,8 +1,8 @@
 'use strict'
 
-function onBallClick(ballEl){
+function onBallClick(ballEl,maxDiameter){
     var size = ballEl.offsetWidth
-    if (size >= 400) {
+    if (size >= maxDiameter) {
         size = 100
         ballEl.style.width = size + 'px'
         ballEl.style.height = size + 'px'
